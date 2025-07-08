@@ -1,0 +1,9 @@
+{
+ "chain":[
+ 	"controller.chain.GetAllTransactionsHandler",
+ 	"controller.chain.PostTransactionHandler",
+  	"controller.chain.DeleteTransactionHandler",
+ 	"controller.chain.GetByIdHandler",
+ 	"controller.chain.GetByTypeHandler"
+ ]
+}
