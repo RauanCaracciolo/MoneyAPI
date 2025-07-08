@@ -61,24 +61,26 @@ public class TransactionDao {
 		}
 	}
 
-	public void delete(int id) throws Exception {
+	public boolean delete(int id) throws Exception {
 		String sql = "DELETE FROM transactions WHERE id = ?";
 		try (PreparedStatement stmt = c.prepareStatement(sql)) {
 			stmt.setInt(1, id);
-			stmt.executeUpdate();
+			int lines = stmt.executeUpdate();
+			return lines>0;
 		} catch (SQLException e) {
 			throw new Exception("Error in delete transaction with id: " + id + ": " + e.getMessage(), e);
 		}
 	}
 
-	public void update(int id, Transaction tr) throws Exception {
+	public boolean update(int id, Transaction tr) throws Exception {
 		String sql = "UPDATE Transactions SET value_ = ?, description_,= ?, type_ = ?, category = ? WHERE id = ? ";
 		try (PreparedStatement stmt = c.prepareStatement(sql)) {
 			stmt.setDouble(1, tr.getValue());
 			stmt.setString(2, tr.getDesc());
 			stmt.setString(3, tr.getType());
 			stmt.setString(4, tr.getCat());
-			stmt.executeUpdate();
+			int lines = stmt.executeUpdate();
+			return lines>0;
 		} catch (Exception e) {
 			throw new Exception("Error in update transaction id: " + id + e.getMessage(), e);
 		}
