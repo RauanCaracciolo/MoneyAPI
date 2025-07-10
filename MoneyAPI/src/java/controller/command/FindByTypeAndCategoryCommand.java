@@ -10,7 +10,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import model.dao.TransactionDao;
 import model.entity.Transaction;
 
-public class FindByTypeAndCategorryCommand implements Command{
+public class FindByTypeAndCategoryCommand implements Command{
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
