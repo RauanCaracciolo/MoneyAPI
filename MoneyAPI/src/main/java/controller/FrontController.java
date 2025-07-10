@@ -1,4 +1,4 @@
-package controller.servlets;
+package controller;
 
 import java.io.IOException;
 
@@ -20,6 +20,7 @@ public class FrontController extends HttpServlet{
 		try {
 			chain = HandlerFactory.createChain();
 		}catch(Exception ex) {
+			ex.printStackTrace();
 			throw new RuntimeException("Error in starting handler chain");
 		}
 	}

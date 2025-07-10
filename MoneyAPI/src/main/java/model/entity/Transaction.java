@@ -1,7 +1,5 @@
 package model.entity;
 
-import java.time.LocalDateTime;
-
 public class Transaction {
 	private int id;
 	private Double value;

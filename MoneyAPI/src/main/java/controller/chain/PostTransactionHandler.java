@@ -8,7 +8,7 @@ public class PostTransactionHandler extends AbstractHandler{
 
 	@Override
 	protected boolean canHandle(HttpServletRequest request) {
-		return request.getMethod().equals("POST") && (request.getPathInfo()!= null || request.getPathInfo().equals("/"));
+		return request.getMethod().equals("POST") && (request.getPathInfo() == null || request.getPathInfo().equals("/"));
 	}
 
 	@Override
