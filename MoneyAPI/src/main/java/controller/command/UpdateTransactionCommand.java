@@ -3,13 +3,13 @@ package controller.command;
 import java.io.BufferedReader;
 import java.io.PrintWriter;
 
-import javax.transaction.Transaction;
 
 import com.google.gson.Gson;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import model.dao.TransactionDao;
+import model.entity.Transaction;
 
 public class UpdateTransactionCommand implements Command{
 
@@ -20,11 +20,11 @@ public class UpdateTransactionCommand implements Command{
 			response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Transaction id is invalid.");
 			return;
 		}
-		int id = Integer.parseInt(path.substring(0));
+		int id = Integer.parseInt(path.substring(1));
 		BufferedReader reader = request.getReader();
 		Transaction tra = new Gson().fromJson(reader, Transaction.class);
 		TransactionDao dao = new TransactionDao();
-		boolean a = dao.update(id, null);
+		boolean a = dao.update(id, tra);
 		if(a) {
 			response.setContentType("application/json");
 			PrintWriter out = response.getWriter();

@@ -76,7 +76,7 @@ public class TransactionDao {
 	}
 
 	public boolean update(int id, Transaction tr) throws Exception {
-		String sql = "UPDATE Transactions SET value_ = ?, description_= ?, type_ = ?, category = ? WHERE id = ? ";
+		String sql = "UPDATE transactions SET value_ = ?, description_= ?, type_ = ?, category = ? WHERE id = ? ";
 		try (PreparedStatement stmt = c.prepareStatement(sql)) {
 			stmt.setDouble(1, tr.getValue());
 			stmt.setString(2, tr.getDesc());
